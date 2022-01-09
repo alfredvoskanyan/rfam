@@ -1,0 +1,50 @@
+Started by GitHub push by alfredvoskanyan
+Obtained Jenkinsfile from git https://github.com/alfredvoskanyan/rfam.git
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/rfam_pipeline
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > /usr/bin/git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/rfam_pipeline/.git # timeout=10
+Fetching changes from the remote Git repository
+ > /usr/bin/git config remote.origin.url https://github.com/alfredvoskanyan/rfam.git # timeout=10
+Fetching upstream changes from https://github.com/alfredvoskanyan/rfam.git
+ > /usr/bin/git --version # timeout=10
+ > git --version # 'git version 1.8.3.1'
+ > /usr/bin/git fetch --tags --progress https://github.com/alfredvoskanyan/rfam.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > /usr/bin/git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision bf3bd735d310d64808ca463817d4ecc3c39fc24e (refs/remotes/origin/main)
+ > /usr/bin/git config core.sparsecheckout # timeout=10
+ > /usr/bin/git checkout -f bf3bd735d310d64808ca463817d4ecc3c39fc24e # timeout=10
+Commit message: "Update mysql.sh"
+ > /usr/bin/git rev-list --no-walk 472350ed4e65466015d944d2b9f7585102ef4187 # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (rfam select)
+[Pipeline] sh
++ chmod +x -R /var/lib/jenkins/workspace/rfam_pipeline
+[Pipeline] sh
++ ./mysql.sh
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Mysql version)
+[Pipeline] sh
++ mysql --version
+mysql  Ver 15.1 Distrib 5.5.68-MariaDB, for Linux (x86_64) using readline 5.1
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
