@@ -8,11 +8,10 @@ pipeline {
                 sh './mysql.sh'
             }
         }
-    }
-    stages {
-        stage('Mysql Version') {
+        stage('rfam select') {
             steps {
-                sh 'mysql --version'
+                sh "chmod +x -R ${env.WORKSPACE}"
+                sh './mysql.sh'
             }
         }
     }
