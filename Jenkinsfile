@@ -4,7 +4,6 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-#                sh './rfam_mysql.sh'
                 echo 'Hello'
             }
         }
