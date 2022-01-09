@@ -5,7 +5,7 @@ pipeline {
         stage('Hello') {
             steps {
                 echo 'Hello'
-                sh 'mysql.sh'
+                sh './mysql.sh'
             }
         }
     }
