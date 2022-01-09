@@ -2,11 +2,17 @@ pipeline {
     agent any
  
     stages {
-        stage('Hello') {
+        stage('rfam select') {
             steps {
-                echo 'Hello'
                 sh "chmod +x -R ${env.WORKSPACE}"
                 sh './mysql.sh'
+            }
+        }
+    }
+    stages {
+        stage('Mysql Version') {
+            steps {
+                sh 'mysql --version'
             }
         }
     }
